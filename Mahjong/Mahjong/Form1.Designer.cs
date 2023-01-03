@@ -89,7 +89,7 @@
             this.label1.Font = new System.Drawing.Font("Stencil", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(96, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 44);
+            this.label1.Size = new System.Drawing.Size(197, 44);
             this.label1.TabIndex = 5;
             this.label1.Text = "Mahjong";
             // 
@@ -97,6 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(402, 404);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);

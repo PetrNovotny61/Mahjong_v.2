@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Mahjong
@@ -19,9 +20,13 @@ namespace Mahjong
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 hra = new Form2();
+            var screenWidth = Screen.PrimaryScreen.Bounds.Width;
+            var screenHeight = Screen.PrimaryScreen.Bounds.Height;
+
             this.Hide();
-            hra.ShowDialog();
+            Form2 game = new Form2();
+            game.Size = new Size(screenWidth, screenHeight);
+            game.ShowDialog();
             this.Close();
         }
 

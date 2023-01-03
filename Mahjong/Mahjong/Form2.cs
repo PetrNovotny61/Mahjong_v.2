@@ -24,6 +24,7 @@ namespace Mahjong
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
             CreateButtons(70);
             InitializeTimer();
         }
