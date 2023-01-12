@@ -37,7 +37,7 @@ namespace Mahjong
             Form2.instance.f3Close = true;
             Form1 mainManu = new Form1();
             mainManu.ShowDialog();
+            
         }
-
     }
 }

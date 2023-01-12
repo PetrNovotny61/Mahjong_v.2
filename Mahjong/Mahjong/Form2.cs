@@ -4,13 +4,13 @@ using System.Drawing;
 using System.Windows.Forms;
 
 
-
 namespace Mahjong
 {
     public partial class Form2 : Form
     {
         public static Form2 instance;
         public bool f3Close = false;
+
         public Form2()
         {
             InitializeComponent();
@@ -24,7 +24,11 @@ namespace Mahjong
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            Screen Srn = Screen.PrimaryScreen;
+            this.Width = Srn.Bounds.Width;
+            this.Height = Srn.Bounds.Height;
             this.WindowState = FormWindowState.Maximized;
+
             CreateButtons(70);
             InitializeTimer();
         }
@@ -72,7 +76,6 @@ namespace Mahjong
             }
 
             Shuffle(buttons);
-
             int a = 100, b = 40;
             int j = 0;
             foreach (Button btn in buttons)
@@ -84,7 +87,7 @@ namespace Mahjong
                 btn.Location = new Point(a, b);
                 Controls.Add(btn);
                 panel1.Controls.Add(btn);
-                a += 66;
+                a += 76;
                 if (j == 14)
                 {
                     j = 0;
@@ -98,7 +101,7 @@ namespace Mahjong
         private void InitializeTimer()
         {
             if(lvl==1)
-                t.Interval = 4000;
+            t.Interval = 4000;
             else
                 t.Interval = 2000;
             t.Enabled = true;
@@ -118,16 +121,24 @@ namespace Mahjong
             {
                 t.Enabled = false;
             }
+
             if (progressBar1.Value == 0)
             {
+                timer1.Stop();   
                 progressBar1.Enabled = false;
-                MessageBox.Show("Čas Vypršel!");
-            }
+                DialogResult msg = MessageBox.Show("Čas Vypršel!");
 
+                if (msg == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
         }
         //**************************************************************************************************
         //**********************************Spojování******************************************
         int score = 0;
+
+        //level--------
         int lvl = 1;
         int pocetNalezenych = 0;
         private void Form2_MouseDown(object sender, MouseEventArgs e)
@@ -146,23 +157,22 @@ namespace Mahjong
                     panel1.Controls.Remove(first);
                     panel1.Controls.Remove(second);
 
-                    //podminka spojnice
+                    //podminka pro spojování obrázků pomocí tzv. spojnic
+
+
                     pocetNalezenych+=2;
-
-
                     if(lvl == 1)
                     {
                         score = score + 15;
                     }
                     else
-                        score +=25;
+                        score +=30;
                 }
-
             }
             else
                 first = (Button)sender;
 
-            if (pocetNalezenych == 140)
+            if (pocetNalezenych == 70)
             {
                 MessageBox.Show("Další Úroveň");
                 CreateButtons(70);
@@ -196,7 +206,6 @@ namespace Mahjong
             Hide();
             Form3 pause = new Form3();
             pause.ShowDialog();
-            pause = null;  
             if(f3Close)
             {
                 Close();

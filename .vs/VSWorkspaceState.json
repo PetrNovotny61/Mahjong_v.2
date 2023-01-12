@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Mahjong"
   ],
-  "SelectedNode": "\\Mahjong.sln",
+  "SelectedNode": "\\Mahjong\\Mahjong.sln",
   "PreviewInSolutionExplorer": false
 }
