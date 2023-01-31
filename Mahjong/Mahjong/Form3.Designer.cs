@@ -32,6 +32,7 @@
             this.button_resume = new System.Windows.Forms.Button();
             this.btn_Close = new System.Windows.Forms.Button();
             this.btn_MainManu = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_resume
@@ -50,7 +51,7 @@
             // 
             this.btn_Close.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_Close.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_Close.Location = new System.Drawing.Point(538, 393);
+            this.btn_Close.Location = new System.Drawing.Point(538, 495);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(218, 95);
             this.btn_Close.TabIndex = 1;
@@ -62,7 +63,7 @@
             // 
             this.btn_MainManu.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_MainManu.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_MainManu.Location = new System.Drawing.Point(538, 285);
+            this.btn_MainManu.Location = new System.Drawing.Point(538, 387);
             this.btn_MainManu.Name = "btn_MainManu";
             this.btn_MainManu.Size = new System.Drawing.Size(218, 95);
             this.btn_MainManu.TabIndex = 2;
@@ -70,12 +71,25 @@
             this.btn_MainManu.UseVisualStyleBackColor = false;
             this.btn_MainManu.Click += new System.EventHandler(this.btn_MainManu_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.button1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.button1.Location = new System.Drawing.Point(538, 286);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(218, 95);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Uložit hru";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1200, 644);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_MainManu);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.button_resume);
@@ -91,5 +105,6 @@
         private System.Windows.Forms.Button button_resume;
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.Button btn_MainManu;
+        private System.Windows.Forms.Button button1;
     }
 }
