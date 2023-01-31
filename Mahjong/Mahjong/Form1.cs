@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Office.CustomXsn;
+using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Mahjong
@@ -11,7 +13,8 @@ namespace Mahjong
             InitializeComponent();
         }
 
-  
+        public static Form1 instance;
+        public string jmeno ="";
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -20,6 +23,7 @@ namespace Mahjong
 
         private void button1_Click(object sender, EventArgs e)
         {
+            jmeno = textBox1.Text;
             var screenWidth = Screen.PrimaryScreen.Bounds.Width;
             var screenHeight = Screen.PrimaryScreen.Bounds.Height;
 
@@ -30,6 +34,25 @@ namespace Mahjong
             this.Close();
         }
 
-  
+        private void button6_Click(object sender, EventArgs e)
+        {
+            StreamReader sw = new StreamReader("..\\..\\..\\data.txt");
+            int score = Convert.ToInt32(sw.ReadLine());
+            int pocet = Convert.ToInt32(sw.ReadLine());
+
+            Form2 game = new Form2();
+            Close();
+
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form4 score = new Form4();
+            score.ShowDialog();
+            this.Close();
+
+        }
     }
 }

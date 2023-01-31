@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 
@@ -39,7 +40,16 @@ namespace Mahjong
             this.Height = Srn.Bounds.Height;
             this.WindowState = FormWindowState.Maximized;
 
+
+
+
+
             CreateButtons(70);
+
+
+
+
+
             InitializeTimer();
         }
 
@@ -61,7 +71,7 @@ namespace Mahjong
             return;
         }
 
-        void CreateButtons(int n)
+            void CreateButtons(int n)
         {
             int id = 1;
             int pocet = 0;
@@ -149,7 +159,7 @@ namespace Mahjong
         int score = 0;
 
         //level--------
-        int lvl = 1;
+        int lvl = 2;
         int pocetNalezenych = 0;
         private void Form2_MouseDown(object sender, MouseEventArgs e)
         { }
@@ -182,7 +192,7 @@ namespace Mahjong
             else
                 first = (Button)sender;
 
-            if (pocetNalezenych == 70)
+            if (pocetNalezenych == 140 && lvl==1)
             {
                 MessageBox.Show("Další Úroveň");
                 CreateButtons(70);
@@ -192,6 +202,25 @@ namespace Mahjong
             }
 
             label2.Text = score.ToString();
+
+            if(lvl==2 && pocetNalezenych == 2)
+            {
+
+                string jmeno = Form1.instance.jmeno;
+
+                MessageBox.Show("Hra úspěšně dohrána!" + "\n\r" + "Ukládám skóre");
+
+                StreamWriter sw = new StreamWriter("..\\..\\..\\score.txt", append: true);
+                sw.WriteLine(jmeno + ": " + score.ToString());
+                sw.Close();
+
+                Form1 menu = new Form1();
+                menu.ShowDialog();
+                Close();
+
+            }
+
+
         }
         //**************************************************************************************************
         //*************************Shuffle*******************************

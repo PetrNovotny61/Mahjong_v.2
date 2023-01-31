@@ -39,7 +39,7 @@
             // 
             this.button_resume.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_resume.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button_resume.Location = new System.Drawing.Point(538, 177);
+            this.button_resume.Location = new System.Drawing.Point(552, 96);
             this.button_resume.Name = "button_resume";
             this.button_resume.Size = new System.Drawing.Size(218, 95);
             this.button_resume.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             this.btn_Close.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_Close.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_Close.Location = new System.Drawing.Point(538, 495);
+            this.btn_Close.Location = new System.Drawing.Point(552, 414);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(218, 95);
             this.btn_Close.TabIndex = 1;
@@ -63,7 +63,7 @@
             // 
             this.btn_MainManu.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_MainManu.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btn_MainManu.Location = new System.Drawing.Point(538, 387);
+            this.btn_MainManu.Location = new System.Drawing.Point(552, 306);
             this.btn_MainManu.Name = "btn_MainManu";
             this.btn_MainManu.Size = new System.Drawing.Size(218, 95);
             this.btn_MainManu.TabIndex = 2;
@@ -75,7 +75,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button1.Location = new System.Drawing.Point(538, 286);
+            this.button1.Location = new System.Drawing.Point(552, 205);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(218, 95);
             this.button1.TabIndex = 3;

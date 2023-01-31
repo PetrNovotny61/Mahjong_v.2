@@ -34,6 +34,9 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -48,12 +51,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(116, 201);
+            this.button2.Location = new System.Drawing.Point(116, 245);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(134, 52);
             this.button2.TabIndex = 1;
             this.button2.Text = "Skóre";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -66,7 +70,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(116, 276);
+            this.button4.Location = new System.Drawing.Point(116, 303);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(134, 52);
             this.button4.TabIndex = 3;
@@ -93,12 +97,41 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Mahjong";
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(116, 187);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(134, 52);
+            this.button6.TabIndex = 6;
+            this.button6.Text = "Načíst hru";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 24);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(136, 20);
+            this.textBox1.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Jméno hráče:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(402, 404);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -120,6 +153,9 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

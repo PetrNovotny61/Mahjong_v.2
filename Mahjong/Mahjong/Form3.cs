@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,14 @@ namespace Mahjong
 
         private void button1_Click(object sender, EventArgs e)
         {
+           int score =  Form2.instance.GetData(out int pocet);
+
+            StreamWriter sw = new StreamWriter("..\\..\\..\\data.txt", append: true);
+            sw.WriteLine(score);
+            sw.WriteLine(pocet);
+            sw.Close();
+            MessageBox.Show("Hra byla úspěšně uložena!");
+
 
         }
     }
