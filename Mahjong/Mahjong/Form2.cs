@@ -8,6 +8,16 @@ namespace Mahjong
 {
     public partial class Form2 : Form
     {
+
+
+        virtual public int GetData(out int pocet)
+        {
+           int score = this.score;
+            pocet = 140 - this.pocetNalezenych;
+            return score;
+        }
+
+
         public static Form2 instance;
         public bool f3Close = false;
 
