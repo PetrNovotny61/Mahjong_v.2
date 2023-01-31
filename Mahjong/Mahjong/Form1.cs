@@ -13,9 +13,6 @@ namespace Mahjong
             InitializeComponent();
         }
 
-        public static Form1 instance;
-        public string jmeno ="";
-
         private void button4_Click(object sender, EventArgs e)
         {
             Close();
@@ -23,7 +20,7 @@ namespace Mahjong
 
         private void button1_Click(object sender, EventArgs e)
         {
-            jmeno = textBox1.Text;
+            //Form2.instance.name = textBox1.Text;
             var screenWidth = Screen.PrimaryScreen.Bounds.Width;
             var screenHeight = Screen.PrimaryScreen.Bounds.Height;
 

@@ -21,6 +21,7 @@ namespace Mahjong
 
         public static Form2 instance;
         public bool f3Close = false;
+        public string name = "";
 
         public Form2()
         {
@@ -45,9 +46,6 @@ namespace Mahjong
 
 
             CreateButtons(70);
-
-
-
 
 
             InitializeTimer();
@@ -181,6 +179,7 @@ namespace Mahjong
 
 
                     pocetNalezenych+=2;
+
                     if(lvl == 1)
                     {
                         score = score + 15;
@@ -203,21 +202,20 @@ namespace Mahjong
 
             label2.Text = score.ToString();
 
-            if(lvl==2 && pocetNalezenych == 2)
+
+            if(lvl==2 && pocetNalezenych == 4)
             {
-
-                string jmeno = Form1.instance.jmeno;
-
                 MessageBox.Show("Hra úspěšně dohrána!" + "\n\r" + "Ukládám skóre");
-
+                MessageBox.Show(name);
+                
                 StreamWriter sw = new StreamWriter("..\\..\\..\\score.txt", append: true);
-                sw.WriteLine(jmeno + ": " + score.ToString());
+                //sw.WriteLine(jmeno + ": " + score.ToString());
+                sw.WriteLine(score.ToString());
                 sw.Close();
-
+                this.Close();
                 Form1 menu = new Form1();
                 menu.ShowDialog();
-                Close();
-
+                
             }
 
 

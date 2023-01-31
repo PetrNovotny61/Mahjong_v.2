@@ -19,7 +19,7 @@ namespace Mahjong
             InitializeComponent();
         }
 
-        string[] pole;
+        string[] pole= null;
         private void Form4_Load(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -27,26 +27,38 @@ namespace Mahjong
             int radky = File.ReadAllLines("..\\..\\..\\score.txt").Count();
             pole = new string[radky];
 
-            while(!sr.EndOfStream)
+            while (!sr.EndOfStream)
             {
-                for(int i =0; i< pole.Length; i++)
+                for (int i = 0; i < pole.Length; i++)
                 {
-                    pole[i] = sr.ReadLine();
-                    i++;
+                    string radek = sr.ReadLine();
+                    pole[i] = radek;
+                    listBox1.Items.Add(radek);
                 }
             }
             sr.Close();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             Array.Sort(pole);
             for(int i = 0; i< pole.Length; i++)
             {
                 listBox1.Items.Add(pole[i]);
             }
+           
+        }
 
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            Array.Sort(pole);
+            for (int i = 0; i < pole.Length; i++)
+            {
+                listBox1.Items.Add(pole[i]);
+            }
 
         }
     }
