@@ -47,7 +47,7 @@ namespace Mahjong
 
             StreamWriter sw = new StreamWriter("..\\..\\..\\data.txt", append: true);
             sw.WriteLine(score);
-            sw.WriteLine(pocet);
+            sw.WriteLine(pocet/2);
             sw.Close();
             MessageBox.Show("Hra byla úspěšně uložena!");
 

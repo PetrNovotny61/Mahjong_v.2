@@ -36,7 +36,9 @@
             // 
             // listBox1
             // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 24;
             this.listBox1.Items.AddRange(new object[] {
             "1"});
             this.listBox1.Location = new System.Drawing.Point(49, 91);
@@ -56,21 +58,21 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(648, 91);
+            this.button1.Location = new System.Drawing.Point(648, 166);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 55);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Seřadit podle skóre";
+            this.button1.Text = "Seřadit podle abecedy A-Z";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(648, 152);
+            this.button2.Location = new System.Drawing.Point(648, 239);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 55);
             this.button2.TabIndex = 3;
-            this.button2.Text = "Seřadit podle jména";
+            this.button2.Text = "Seřadit podle abecedy Z-A";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

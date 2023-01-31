@@ -50,11 +50,11 @@ namespace Mahjong
             }
            
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
             Array.Sort(pole);
+            Array.Reverse(pole);
             for (int i = 0; i < pole.Length; i++)
             {
                 listBox1.Items.Add(pole[i]);

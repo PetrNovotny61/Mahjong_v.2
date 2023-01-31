@@ -13,7 +13,7 @@ namespace Mahjong
 
         virtual public int GetData(out int pocet)
         {
-           int score = this.score;
+            int score = this.score;
             pocet = 140 - this.pocetNalezenych;
             return score;
         }
@@ -21,7 +21,6 @@ namespace Mahjong
 
         public static Form2 instance;
         public bool f3Close = false;
-        public string name = "";
 
         public Form2()
         {
@@ -33,7 +32,8 @@ namespace Mahjong
         private int counter;
         Timer t = new Timer();
         List<Button> buttons = new List<Button>();
-
+        int score = 0;
+        int n =0;
         private void Form2_Load(object sender, EventArgs e)
         {
             Screen Srn = Screen.PrimaryScreen;
@@ -41,13 +41,17 @@ namespace Mahjong
             this.Height = Srn.Bounds.Height;
             this.WindowState = FormWindowState.Maximized;
 
-
-
-
-
-            CreateButtons(70);
-
-
+            score = Form1.instance.Load_game(out int n);
+            if(score == 0 )
+            {
+                CreateButtons(70);
+            }
+            else
+            {
+                CreateButtons(n);
+                label2.Text = score.ToString();
+            }
+            
             InitializeTimer();
         }
 
@@ -154,7 +158,7 @@ namespace Mahjong
         }
         //**************************************************************************************************
         //**********************************Spojování******************************************
-        int score = 0;
+        
 
         //level--------
         int lvl = 2;
@@ -185,7 +189,7 @@ namespace Mahjong
                         score = score + 15;
                     }
                     else
-                        score +=30;
+                        score +=35;
                 }
             }
             else
@@ -203,22 +207,20 @@ namespace Mahjong
             label2.Text = score.ToString();
 
 
-            if(lvl==2 && pocetNalezenych == 4)
+            if(lvl==2 && pocetNalezenych == 10)
             {
+                string name = Form1.instance.Get_Name();
+
                 MessageBox.Show("Hra úspěšně dohrána!" + "\n\r" + "Ukládám skóre");
-                MessageBox.Show(name);
                 
                 StreamWriter sw = new StreamWriter("..\\..\\..\\score.txt", append: true);
-                //sw.WriteLine(jmeno + ": " + score.ToString());
-                sw.WriteLine(score.ToString());
+                sw.WriteLine(name + ": " + score.ToString());
+                this.Hide();
                 sw.Close();
                 this.Close();
                 Form1 menu = new Form1();
                 menu.ShowDialog();
-                
             }
-
-
         }
         //**************************************************************************************************
         //*************************Shuffle*******************************
