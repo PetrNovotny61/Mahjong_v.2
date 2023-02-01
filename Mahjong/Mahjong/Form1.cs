@@ -25,11 +25,8 @@ namespace Mahjong
         {
             string jmeno = textBox1.Text;
             return jmeno;
-
         }
         
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -58,7 +55,6 @@ namespace Mahjong
         }
 
 
-
         int score = 0;
         int pocet = 0;
         private void button6_Click(object sender, EventArgs e)
@@ -68,13 +64,6 @@ namespace Mahjong
             score = Convert.ToInt32(sr.ReadLine());
             pocet = Convert.ToInt32(sr.ReadLine());
             sr.Close();
-
-
-            /*
-            StreamWriter sw = new StreamWriter(path);
-            File.WriteAllText(path, String.Empty);
-            sw.Close();
-            */
 
             Form2 game = new Form2();
             game.ShowDialog();

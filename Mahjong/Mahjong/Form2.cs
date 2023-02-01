@@ -212,9 +212,9 @@ namespace Mahjong
                 string name = Form1.instance.Get_Name();
 
                 MessageBox.Show("Hra úspěšně dohrána!" + "\n\r" + "Ukládám skóre");
-                
+
                 StreamWriter sw = new StreamWriter("..\\..\\..\\score.txt", append: true);
-                sw.WriteLine(name + ": " + score.ToString());
+                sw.WriteLine(name + " - " + score.ToString()+ " - " + DateTime.Today.ToShortDateString());
                 this.Hide();
                 sw.Close();
                 this.Close();

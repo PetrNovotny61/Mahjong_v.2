@@ -89,7 +89,6 @@ namespace Mahjong
                 listBox1.Items.Add(s);
             }
 
-
         }
     }
 }
