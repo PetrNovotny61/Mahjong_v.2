@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Media;
 using System.Windows.Forms;
 
 
@@ -9,7 +10,9 @@ namespace Mahjong
 {
     public partial class Form2 : Form
     {
-
+        SoundPlayer sound = new SoundPlayer("song.wav");
+        bool hraje = false;
+        bool zvuk = true;
 
         virtual public int GetData(out int pocet)
         {
@@ -158,8 +161,9 @@ namespace Mahjong
         }
         //**************************************************************************************************
         //**********************************Spojování******************************************
-        
 
+    
+        SoundPlayer cvak = new SoundPlayer("cvak.wav");
         //level--------
         int lvl = 2;
         int pocetNalezenych = 0;
@@ -180,9 +184,12 @@ namespace Mahjong
                     panel1.Controls.Remove(second);
 
                     //podminka pro spojování obrázků pomocí tzv. spojnic
+                    if(hraje == false && zvuk == true)
+                    {
+                        cvak.Play();
+                    }
 
-
-                    pocetNalezenych+=2;
+                    pocetNalezenych +=2;
 
                     if(lvl == 1)
                     {
@@ -255,5 +262,37 @@ namespace Mahjong
             }     
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            if (hraje == false)
+            {
+                sound.Play();
+                hraje = true;
+                zvuk = true;
+                MessageBox.Show("Zapnuto");
+            }
+            else
+            {
+                sound.Stop();
+                hraje = false;
+                MessageBox.Show("Vypnuto");
+            }
+                
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (zvuk == true)
+            {
+                zvuk = false;
+                MessageBox.Show("Vypnuto");
+            }
+            else
+            {
+                zvuk = true;
+                MessageBox.Show("Zapnuto");
+            }
+                
+        }
     }
 }

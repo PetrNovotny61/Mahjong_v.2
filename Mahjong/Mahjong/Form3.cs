@@ -45,7 +45,6 @@ namespace Mahjong
         {
             //Ukládat přesné pozice tlačítek
 
-
            int score =  Form2.instance.GetData(out int pocet);
 
             StreamWriter sw = new StreamWriter("..\\..\\..\\data.txt");
