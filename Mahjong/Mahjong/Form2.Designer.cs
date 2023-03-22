@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,6 +44,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -180,6 +182,21 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "amerika.png");
+            this.imageList1.Images.SetKeyName(1, "car.png");
+            this.imageList1.Images.SetKeyName(2, "domy.png");
+            this.imageList1.Images.SetKeyName(3, "had.png");
+            this.imageList1.Images.SetKeyName(4, "kocka.png");
+            this.imageList1.Images.SetKeyName(5, "lod.png");
+            this.imageList1.Images.SetKeyName(6, "moto.png");
+            this.imageList1.Images.SetKeyName(7, "oko.png");
+            this.imageList1.Images.SetKeyName(8, "rex.png");
+            this.imageList1.Images.SetKeyName(9, "zebra.png");
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,5 +234,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

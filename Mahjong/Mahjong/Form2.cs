@@ -78,14 +78,14 @@ namespace Mahjong
 
             void CreateButtons(int n)
         {
-            int id = 1;
+            int id = 0;
             int pocet = 0;
             for (int i = 1; i <= n; i++)
             {
                 if (pocet == 10)
                 {
                     pocet = 0;
-                    id = 1;
+                    id = 0;
                 }
 
                 Button btn = new Button();
@@ -96,6 +96,10 @@ namespace Mahjong
                 btn2.Text = id.ToString();
                 btn2.Click += Kliknuti;
                 buttons.Add(btn2);
+
+                btn.BackgroundImage = imageList1.Images[id];
+                btn2.BackgroundImage = imageList1.Images[id];
+
                 pocet++;
                 id++;
             }
