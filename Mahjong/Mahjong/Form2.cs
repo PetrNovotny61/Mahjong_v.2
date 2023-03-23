@@ -46,7 +46,6 @@ namespace Mahjong
         Timer t = new Timer();
         List<Button> buttons = new List<Button>();
         int score = 0;
-        int n =0;
         private void Form2_Load(object sender, EventArgs e)
         {
             originalSizeForm = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
@@ -72,6 +71,13 @@ namespace Mahjong
                 originalSizesControls.Add(r);
             }
             foreach (Control control in panel1.Controls)
+            {
+                allControls.Add(control);
+                Rectangle r = new Rectangle(control.Location.X, control.Location.Y, control.Width, control.Height);
+                originalFontSizes.Add((int)control.Font.Size);
+                originalSizesControls.Add(r);
+            }
+            foreach (Control control in panel2.Controls)
             {
                 allControls.Add(control);
                 Rectangle r = new Rectangle(control.Location.X, control.Location.Y, control.Width, control.Height);
