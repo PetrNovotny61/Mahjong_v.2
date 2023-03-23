@@ -48,21 +48,24 @@ namespace Mahjong
       
         }
 
-        virtual public int Load_game(out int n)
+        virtual public int Load_game(out int n, out int cas)
         {
             n = this.pocet;
+            cas = this.cas;
             return this.score;
         }
 
 
         int score = 0;
         int pocet = 0;
+        int cas = 0;
         private void button6_Click(object sender, EventArgs e)
         {
-            string path = "..\\..\\..\\data.txt";
+            string path = "data.txt";
             StreamReader sr = new StreamReader(path);
             score = Convert.ToInt32(sr.ReadLine());
             pocet = Convert.ToInt32(sr.ReadLine());
+            cas = Convert.ToInt32(sr.ReadLine());
             sr.Close();
 
             Form2 game = new Form2();

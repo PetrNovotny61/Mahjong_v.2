@@ -43,11 +43,9 @@ namespace Mahjong
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Ukládat přesné pozice tlačítek
+           int score =  Form2.instance.GetData(out int pocet, out int cas);
 
-           int score =  Form2.instance.GetData(out int pocet);
-
-            StreamWriter sw = new StreamWriter("..\\..\\..\\data.txt");
+            StreamWriter sw = new StreamWriter("data.txt");
             sw.WriteLine(score);
             sw.WriteLine(pocet/2);
             sw.Close();

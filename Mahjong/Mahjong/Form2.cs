@@ -24,9 +24,10 @@ namespace Mahjong
         bool hraje = false;
         bool zvuk = true;
 
-        virtual public int GetData(out int pocet)
+        virtual public int GetData(out int pocet, out int cas)
         {
             int score = this.score;
+            cas = this.counter;
             pocet = 140 - this.pocetNalezenych;
             return score;
         }
@@ -48,11 +49,13 @@ namespace Mahjong
         int score = 0;
         private void Form2_Load(object sender, EventArgs e)
         {
+            WindowState = FormWindowState.Maximized;
+
             originalSizeForm = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
             currentSizeForm = new Rectangle(0, 0, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             sizeRatio = 0.5625f;
 
-            score = Form1.instance.Load_game(out int n);
+            score = Form1.instance.Load_game(out int n, out int cas);
             if(score == 0 )
             {
                 CreateButtons(70);
@@ -61,6 +64,8 @@ namespace Mahjong
             {
                 CreateButtons(n);
                 label2.Text = score.ToString();
+                counter = cas;
+                progressBar1.Value = 100-counter;
             }
 
             foreach (Control control in this.Controls)
@@ -167,7 +172,7 @@ namespace Mahjong
         private void InitializeTimer()
         {
             if(lvl==1)
-            t.Interval = 4000;
+                t.Interval = 4000;
             else
                 t.Interval = 2000;
             t.Enabled = true;
@@ -179,7 +184,11 @@ namespace Mahjong
             if (counter < 1200)
             {
                 counter++;
-                progressBar1.Value--;
+                if(progressBar1.Value>0)
+                {
+                    timer1.Enabled = false;
+                    progressBar1.Value--;
+                }
                 int cas = progressBar1.Value;
                 label3.Text = cas.ToString();
             }
@@ -188,14 +197,23 @@ namespace Mahjong
                 t.Enabled = false;
             }
 
-            if (progressBar1.Value == 0)
+            if (progressBar1.Value == 1)
             {
-                timer1.Stop();   
+                progressBar1.Value = 1;
                 progressBar1.Enabled = false;
-                DialogResult msg = MessageBox.Show("Čas Vypršel!");
+                timer1.Stop();   
+                
+                DialogResult msg = MessageBox.Show("Čas Vypršel!      Ukládám skóre");
 
                 if (msg == DialogResult.OK)
                 {
+                    string name = Form1.instance.Get_Name();
+                    StreamWriter sw = new StreamWriter("score.txt", append: true);
+                    sw.WriteLine(name + " - " + score.ToString() + " - " + DateTime.Today.ToShortDateString());
+                    this.Hide();
+                    sw.Close();
+                    Form1 menu = new Form1();
+                    menu.ShowDialog();
                     this.Close();
                 }
             }
@@ -206,7 +224,7 @@ namespace Mahjong
     
         SoundPlayer cvak = new SoundPlayer("cvak.wav");
         //level--------
-        int lvl = 2;
+        int lvl = 1;
         int pocetNalezenych = 0;
         private void Form2_MouseDown(object sender, MouseEventArgs e)
         { }
@@ -246,8 +264,10 @@ namespace Mahjong
             if (pocetNalezenych == 140 && lvl==1)
             {
                 MessageBox.Show("Další Úroveň");
-                CreateButtons(70);
                 lvl++;
+                buttons.Clear();
+                CreateButtons(70);
+                InitializeTimer();
                 label6.Text = lvl.ToString();
                 pocetNalezenych = 0;
             }
@@ -255,13 +275,13 @@ namespace Mahjong
             label2.Text = score.ToString();
 
 
-            if(lvl==2 && pocetNalezenych == 10)
+            if(lvl==2 && pocetNalezenych == 140)
             {
                 string name = Form1.instance.Get_Name();
 
                 MessageBox.Show("Hra úspěšně dohrána!" + "\n\r" + "Ukládám skóre");
 
-                StreamWriter sw = new StreamWriter("..\\..\\..\\score.txt", append: true);
+                StreamWriter sw = new StreamWriter("score.txt", append: true);
                 sw.WriteLine(name + " - " + score.ToString()+ " - " + DateTime.Today.ToShortDateString());
                 this.Hide();
                 sw.Close();

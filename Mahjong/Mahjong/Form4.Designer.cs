@@ -34,7 +34,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -64,7 +63,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(575, 178);
+            this.button1.Location = new System.Drawing.Point(508, 178);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 55);
             this.button1.TabIndex = 2;
@@ -75,7 +74,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Location = new System.Drawing.Point(575, 239);
+            this.button2.Location = new System.Drawing.Point(636, 178);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 55);
             this.button2.TabIndex = 3;
@@ -102,23 +101,12 @@
             this.textBox1.Size = new System.Drawing.Size(175, 20);
             this.textBox1.TabIndex = 5;
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button4.Location = new System.Drawing.Point(575, 300);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(122, 55);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Seřadit podle datumu";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -141,6 +129,5 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button4;
     }
 }

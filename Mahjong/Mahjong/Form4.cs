@@ -25,8 +25,8 @@ namespace Mahjong
         private void Form4_Load(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            StreamReader sr = new StreamReader("..\\..\\..\\score.txt");
-            int radky = File.ReadAllLines("..\\..\\..\\score.txt").Count();
+            StreamReader sr = new StreamReader("score.txt");
+            int radky = File.ReadAllLines("score.txt").Count();
             pole = new string[radky];
 
             while (!sr.EndOfStream)
@@ -67,8 +67,8 @@ namespace Mahjong
         private void button3_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            StreamReader sr = new StreamReader("..\\..\\..\\score.txt");
-            int radky = File.ReadAllLines("..\\..\\..\\score.txt").Count();
+            StreamReader sr = new StreamReader("score.txt");
+            int radky = File.ReadAllLines("score.txt").Count();
             pole = new string[radky];
             int i = 0;
             ArrayList ar = new ArrayList();
@@ -90,5 +90,6 @@ namespace Mahjong
             }
 
         }
+
     }
 }
