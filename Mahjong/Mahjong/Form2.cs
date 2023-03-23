@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Media;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 
@@ -10,6 +12,14 @@ namespace Mahjong
 {
     public partial class Form2 : Form
     {
+        private List<Rectangle> originalSizesControls = new List<Rectangle>();
+        private List<int> originalFontSizes = new List<int>();
+        private List<Control> allControls = new List<Control>();
+        private Rectangle originalSizeForm;
+        private Rectangle currentSizeForm;
+        private float sizeRatio;
+        private int controlsCount;
+
         SoundPlayer sound = new SoundPlayer("song.wav");
         bool hraje = false;
         bool zvuk = true;
@@ -39,10 +49,9 @@ namespace Mahjong
         int n =0;
         private void Form2_Load(object sender, EventArgs e)
         {
-            Screen Srn = Screen.PrimaryScreen;
-            this.Width = Srn.Bounds.Width;
-            this.Height = Srn.Bounds.Height;
-            this.WindowState = FormWindowState.Maximized;
+            originalSizeForm = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
+            currentSizeForm = new Rectangle(0, 0, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            sizeRatio = 0.5625f;
 
             score = Form1.instance.Load_game(out int n);
             if(score == 0 )
@@ -54,7 +63,27 @@ namespace Mahjong
                 CreateButtons(n);
                 label2.Text = score.ToString();
             }
-            
+
+            foreach (Control control in this.Controls)
+            {
+                allControls.Add(control);
+                Rectangle r = new Rectangle(control.Location.X, control.Location.Y, control.Width, control.Height);
+                originalFontSizes.Add((int)control.Font.Size);
+                originalSizesControls.Add(r);
+            }
+            foreach (Control control in panel1.Controls)
+            {
+                allControls.Add(control);
+                Rectangle r = new Rectangle(control.Location.X, control.Location.Y, control.Width, control.Height);
+                originalFontSizes.Add((int)control.Font.Size);
+                originalSizesControls.Add(r);
+            }
+
+            controlsCount = allControls.Count();
+            for (int i = 0; i < controlsCount; i++)
+            {
+                ResizeControl(originalSizesControls[i], allControls[i], originalFontSizes[i]);
+            }
             InitializeTimer();
         }
 
@@ -98,7 +127,9 @@ namespace Mahjong
                 buttons.Add(btn2);
 
                 btn.BackgroundImage = imageList1.Images[id];
+                btn.BackgroundImageLayout = ImageLayout.Stretch;
                 btn2.BackgroundImage = imageList1.Images[id];
+                btn2.BackgroundImageLayout = ImageLayout.Stretch;
 
                 pocet++;
                 id++;
@@ -297,6 +328,41 @@ namespace Mahjong
                 MessageBox.Show("Zapnuto");
             }
                 
+        }
+        private void ResizeControl(Rectangle r, Control c, int fontSize)
+        {
+            float ratio = this.Width / (float)(originalSizeForm.Width);
+
+            int newX = (int)(r.X * ratio);
+            int newY = (int)(r.Y * ratio);
+
+            int newWidth = (int)(r.Width * ratio);
+            int newHeight = (int)(r.Height * ratio);
+
+            int newFontSize = (int)(fontSize * ratio);
+            newFontSize = Math.Max(newFontSize, 2);
+
+            c.Location = new Point(newX, newY);
+            c.Size = new Size(newWidth, newHeight);
+            c.Font = new Font(c.Font.Name, newFontSize);
+        }
+
+        private void Form2_ResizeEnd(object sender, EventArgs e)
+        {
+            if (this.Width != currentSizeForm.Width || this.Height != currentSizeForm.Height)
+            {
+                int width = this.Width;
+                int height = (int)(width * sizeRatio);
+                currentSizeForm.Width = width;
+                currentSizeForm.Height = height;
+                this.Width = currentSizeForm.Width;
+                this.Height = currentSizeForm.Height;
+            }
+            for (int i = 0; i < controlsCount; i++)
+            {
+                ResizeControl(originalSizesControls[i], allControls[i], originalFontSizes[i]);
+            }
+
         }
     }
 }
